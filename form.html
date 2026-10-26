@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Registration Form</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        padding: 30px;
+      }
+
+      .form-container {
+        max-width: 450px;
+        margin: auto;
+        background-color: white;
+        padding: 25px;
+        border-radius: 10px;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: #333;
+      }
+
+      .error {
+        color: red;
+        font-size: 14px;
+        margin-top: 5px;
+      }
+
+      button {
+        width: 100%;
+        padding: 12px;
+        background-color: #222;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #444;
+      }
+
+      .success {
+        color: green;
+        text-align: center;
+        margin-top: 15px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="form-container">
+      <h1>Registration Form</h1>
+
+      <form id="registrationForm">
+        <!-- Name -->
+        <div class="form-group">
+          <label for="name">Full Name</label>
+
+          <input type="text" id="name" placeholder="Enter your name" />
+
+          <p class="error" id="nameError"></p>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Email</label>
+
+          <input type="email" id="email" placeholder="Enter your email" />
+
+          <p class="error" id="emailError"></p>
+        </div>
+
+        <!-- Age -->
+        <div class="form-group">
+          <label for="age">Age</label>
+
+          <input type="number" id="age" placeholder="Enter your age" />
+
+          <p class="error" id="ageError"></p>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="password">Password</label>
+
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+          />
+
+          <p class="error" id="passwordError"></p>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+
+          <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm your password"
+          />
+
+          <p class="error" id="confirmPasswordError"></p>
+        </div>
+
+        <button type="submit">Register</button>
+
+        <p class="success" id="successMessage"></p>
+      </form>
+
+
+      <marquee behavior="" direction="left">FORM FORM FORM FORM FORM FORM FORM FORM FORM FORM FORM FORM FORM FORM v FORM FORM FORM FORM FORMFORM FORM FORM FORM FORM FORM FORMv FORM FORM FORMv vv FORM FORMFORM FORM</marquee>
+    </div>
+
+    <script>
+      // Get the form
+      const form = document.querySelector("#registrationForm");
+
+      // Get the inputs
+      const nameInput = document.querySelector("#name");
+      const emailInput = document.querySelector("#email");
+      const ageInput = document.querySelector("#age");
+      const passwordInput = document.querySelector("#password");
+      const confirmPasswordInput = document.querySelector("#confirmPassword");
+
+      // Get the error elements
+      const nameError = document.querySelector("#nameError");
+      const emailError = document.querySelector("#emailError");
+      const ageError = document.querySelector("#ageError");
+      const passwordError = document.querySelector("#passwordError");
+
+      const confirmPasswordError = document.querySelector(
+        "#confirmPasswordError",
+      );
+
+      // Success message
+      const successMessage = document.querySelector("#successMessage");
+
+      // Listen for form submission
+      form.addEventListener("submit", function (event) {
+        // Stop the browser from submitting the form
+        event.preventDefault();
+
+        // Clear previous error messages
+        nameError.textContent = "";
+        emailError.textContent = "";
+        ageError.textContent = "";
+        passwordError.textContent = "";
+        confirmPasswordError.textContent = "";
+        successMessage.textContent = "";
+
+        // Get the values
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const age = ageInput.value.trim();
+        const password = passwordInput.value;
+        const confirmPassword = confirmPasswordInput.value;
+
+        // Track whether the form is valid
+        let isValid = true;
+
+        // =========================
+        // NAME VALIDATION
+        // =========================
+
+        if (name === "") {
+          nameError.textContent = "Name is required.";
+
+          isValid = false;
+        } else if (name.length < 3) {
+          nameError.textContent = "Name must be at least 3 characters.";
+
+          isValid = false;
+        }
+
+        // =========================
+        // EMAIL VALIDATION
+        // =========================
+
+        if (email === "") {
+          emailError.textContent = "Email is required.";
+
+          isValid = false;
+        } else if (!email.includes("@")) {
+          emailError.textContent = "Please enter a valid email.";
+
+          isValid = false;
+        }
+
+        // =========================
+        // AGE VALIDATION
+        // =========================
+
+        if (age === "") {
+          ageError.textContent = "Age is required.";
+
+          isValid = false;
+        } else if (Number(age) < 18) {
+          ageError.textContent = "You must be at least 18 years old.";
+
+          isValid = false;
+        }
+
+        // =========================
+        // PASSWORD VALIDATION
+        // =========================
+
+        if (password === "") {
+          passwordError.textContent = "Password is required.";
+
+          isValid = false;
+        } else if (password.length < 8) {
+          passwordError.textContent = "Password must be at least 8 characters.";
+
+          isValid = false;
+        }
+
+        // =========================
+        // CONFIRM PASSWORD
+        // =========================
+
+        if (confirmPassword === "") {
+          confirmPasswordError.textContent = "Please confirm your password.";
+
+          isValid = false;
+        } else if (password !== confirmPassword) {
+          confirmPasswordError.textContent = "Passwords do not match.";
+
+          isValid = false;
+        }
+
+        // =========================
+        // FINAL RESULT
+        // =========================
+
+        if (isValid) {
+          successMessage.textContent = "Registration successful!";
+
+          // You can process/send the form here
+          console.log("Name:", name);
+          console.log("Email:", email);
+          console.log("Age:", age);
+          console.log("Password:", password);
+        }
+      });
+    </script>
+  </body>
+</html>

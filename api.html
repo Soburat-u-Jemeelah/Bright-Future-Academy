@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>My First Example</title>
+</head>
+<body>
+ <h1>Student Information</h1>
+ <p id="students"></p>
+
+
+<!-- API   -->
+
+  <h1>My API Users</h1>
+ <button onclick="getStudent()">Get Students</button>
+ <p id="message">Click the button to get users.</p>
+ <div id="student" style="border: 1px solid black; padding: 20px; display: grid; grid-template-columns: repeat(4, 1fr);"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+ <script>
+ const student = {
+ name: "Amina",
+ age: 18,
+ course: "JavaScript"
+ };
+ 
+ document.getElementById("students").textContent =
+ "My name is " +
+ student.name +
+ ". I am " +
+  student.age +
+ " years old. I study " +
+  student.course + ".";
+
+
+
+
+
+ function getStudent() {
+ const message = document.getElementById("message");
+ const usersContainer = document.getElementById("student");
+ message.textContent = "Loading students...";
+ usersContainer.innerHTML = "";
+ fetch("http://localhost:3000/students")
+ .then(function(response) {
+ return response.json();
+ })
+ .then(function(data) {
+ message.textContent = "Students loaded successfully!";
+ data.forEach(function(student) {
+ const card = document.createElement("div");
+ const id = document.createElement("h3");
+ const firstName = document.createElement("p") 
+ const lastName = document.createElement("p")
+ const age = document.createElement("p")
+ const gender = document.createElement("p")
+ const email = document.createElement("p");
+ const department = document.createElement("p")
+ const level = document.createElement("p")
+ id.textContent = student.id;
+ firstName.textContent = student.firstName
+ lastName.textContent = student.lastName
+ age.textContent = student.age
+ gender.textContent = student.gender
+ email.textContent = student.email;
+ department.textContent= student.department
+ level.textContent = student.level
+
+
+ card.append(id, firstName, lastName, age, gender, email, department, level);
+ usersContainer.appendChild(card);
+ });
+ })
+ .catch(function(error) {
+ message.textContent = "Something went wrong!";
+ console.log(error);
+ });
+ }
+ </script>
+</body>
+</html>

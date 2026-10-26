@@ -1,0 +1,101 @@
+
+{
+  "students": [
+    {
+      "id": 1,
+      "firstName": "Adebayo",
+      "lastName": "Oluwaseun",
+      "age": 17,
+      "gender": "Male",
+      "email": "adebayo@example.com",
+      "department": "Computer Science",
+      "level": "100 Level",
+      "score": 85,
+      "isActive": true
+    },
+    {
+      "id": 2,
+      "firstName": "Fatima",
+      "lastName": "Abdullahi",
+      "age": 18,
+      "gender": "Female",
+      "email": "fatima@example.com",
+      "department": "Mathematics",
+      "level": "200 Level",
+      "score": 92,
+      "isActive": true
+    },
+    {
+      "id": 3,
+      "firstName": "Chinedu",
+      "lastName": "Okafor",
+      "age": 19,
+      "gender": "Male",
+      "email": "chinedu@example.com",
+      "department": "Physics",
+      "level": "300 Level",
+      "score": 76,
+      "isActive": true
+    },
+    {
+      "id": 4,
+      "firstName": "Zainab",
+      "lastName": "Ibrahim",
+      "age": 17,
+      "gender": "Female",
+      "email": "zainab@example.com",
+      "department": "Computer Science",
+      "level": "100 Level",
+      "score": 68,
+      "isActive": false
+    },
+    {
+      "id": 5,
+      "firstName": "Emeka",
+      "lastName": "Nwosu",
+      "age": 20,
+      "gender": "Male",
+      "email": "emeka@example.com",
+      "department": "Software Engineering",
+      "level": "400 Level",
+      "score": 89,
+      "isActive": true
+    },
+    {
+      "id": 6,
+      "firstName": "Aisha",
+      "lastName": "Musa",
+      "age": 18,
+      "gender": "Female",
+      "email": "aisha@example.com",
+      "department": "Cybersecurity",
+      "level": "200 Level",
+      "score": 95,
+      "isActive": true
+    },
+    {
+      "id": 7,
+      "firstName": "Samuel",
+      "lastName": "Adeyemi",
+      "age": 21,
+      "gender": "Male",
+      "email": "samuel@example.com",
+      "department": "Computer Science",
+      "level": "400 Level",
+      "score": 73,
+      "isActive": false
+    },
+    {
+      "id": 8,
+      "firstName": "Maryam",
+      "lastName": "Yusuf",
+      "age": 19,
+      "gender": "Female",
+      "email": "maryam@example.com",
+      "department": "Information Technology",
+      "level": "300 Level",
+      "score": 88,
+      "isActive": true
+    }
+  ]
+}
